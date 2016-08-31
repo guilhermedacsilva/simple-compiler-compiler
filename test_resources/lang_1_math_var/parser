@@ -1,0 +1,18 @@
+program command+
+
+command identifier attribution expression semicolon
+command print parentheses_open expression parentheses_close semicolon
+
+expression term plus expression
+expression term minus expression
+expression plus expression
+expression minus expression
+expression term
+
+term factor mult term
+term factor div term
+term factor
+
+factor integer
+factor identifier
+factor parentheses_open expression parentheses_close

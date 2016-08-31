@@ -1,0 +1,88 @@
+#{def production 0}
+#{production __data__}
+.text
+main:
+#{child self}
+jr $ra
+
+#{def production __data__}
+.data
+#{begin iterate symbol = symbol_table}
+id_#{support_map symbol lexeme}: .word 0
+#{end iterate symbol}
+
+#{def production command0}
+#{child 2}
+sw $a0 #{child 0}
+
+#{def production command1}
+#{child 2}
+li $v0 1
+syscall
+
+#{def production identifier}
+id_#{lexeme}
+
+#{def production expression0}
+#{child 0}
+sw $a0 0($sp)
+addiu $sp $sp -4
+#{child 2}
+lw $t0 4($sp)
+add $a0 $t0 $a0
+addiu $sp $sp 4
+
+#{def production expression1}
+#{child 0}
+sw $a0 0($sp)
+addiu $sp $sp -4
+#{child 2}
+lw $t0 4($sp)
+sub $a0 $t0 $a0
+addiu $sp $sp 4
+
+#{def production expression2}
+#{child 1}
+
+#{def production expression3}
+#{child 1}
+mult $a0 -1
+mflo $a0
+
+#{def production expression4}
+#{child 0}
+
+#{def production term0}
+#{child 0}
+sw $a0 0($sp)
+addiu $sp $sp -4
+#{child 2}
+lw $t0 4($sp)
+mult $a0 $t0
+mflo $a0
+addiu $sp $sp 4
+
+#{def production term1}
+#{child 0}
+sw $a0 0($sp)
+addiu $sp $sp -4
+#{child 2}
+lw $t0 4($sp)
+div $t0 $a0
+mflo $a0
+addiu $sp $sp 4
+
+#{def production term2}
+#{child 0}
+
+#{def production factor0}
+#{child 0}
+
+#{def production factor1}
+lw $a0 #{child 0}
+
+#{def production factor2}
+#{child 1}
+
+#{def production integer}
+li $a0 #{lexeme}

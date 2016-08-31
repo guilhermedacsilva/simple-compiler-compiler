@@ -1,0 +1,38 @@
+#{def production 0}
+.text
+main:
+#{child self}
+li $v0, 1
+syscall
+jr $ra
+
+#{def production E0}
+#{child 0}
+sw $a0 0($sp)
+addiu $sp $sp -4
+#{child 2}
+lw $t0 4($sp)
+add $a0 $t0 $a0
+addiu $sp $sp 4
+
+#{def production E1}
+#{child 0}
+
+#{def production T0}
+#{child 0}
+sw $a0 0($sp)
+addiu $sp $sp -4
+#{child 2}
+lw $t0 4($sp)
+mult $a0 $t0
+mflo $a0
+addiu $sp $sp 4
+
+#{def production T1}
+#{child 0}
+
+#{def production T2}
+#{child 1}
+
+#{def production int}
+li $a0 #{lexeme}

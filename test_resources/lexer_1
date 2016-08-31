@@ -1,0 +1,4 @@
+classe
+^.*$
+
+// line ignore by LexerBuilder

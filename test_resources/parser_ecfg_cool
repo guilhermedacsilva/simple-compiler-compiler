@@ -1,0 +1,43 @@
+program class_definition+
+class_definition #class type inheritance? block_open feature* block_close semicolon
+inheritance #inherits type
+
+feature id colon type member_attribution? semicolon
+member_attribution attribution expression
+
+feature id parentheses_open formal_parameters? parentheses_close colon type block_open expression block_close semicolon
+formal_parameters id colon type more_formal_parameter?
+more_formal_parameter comma formal_parameters
+
+expression id attribution expression
+expression expression static_type? dot id parentheses_open actual_parameters? parentheses_close
+static_type at type
+actual_parameters expression more_actual_parameters?
+more_actual_parameters comma actual_parameters
+
+expression id parentheses_open actual_parameters? parentheses_close
+expression #if expression #then expression #else expression #fi
+expression #while expression #loop expression #pool
+expression block_open expressions+ block_close
+expressions expression semicolon
+expression #let id colon type member_attribution? more_lets* #in expression
+more_lets comma id colon type member_attribution?
+
+expression #case expression #of case_option+ #esac
+case_option id colon type implies expression semicolon
+expression #new type
+expression #isvoid expression
+expression expression plus expression
+expression expression minus expression
+expression expression mult expression
+expression expression div expression
+expression negation expression
+expression expression less expression
+expression expression less_equal expression
+expression expression equal expression
+expression #not expression
+expression parentheses_open expression parentheses_close
+expression id
+expression integer
+expression string
+expression bool

@@ -1,0 +1,20 @@
+RULES FOR SINTAX (PARSER)
+
+SINTAX:
+definition ruleItem [ruleItem]*
+
+first definition must be the root, so it will have the 'END' in the follow set.
+all definitions will be considered non-terminals.
+all others will be considered terminals.
+
+special chars should be the last char in the ruleItem
+? 0-1
+* 0-N
++ 1-N
+example: ruleItem? ruleItem+
+
+forbidden name prefix: $, <, >
+
+the # prefix means KEYWORD
+ex:
+class_definition #class id { something };

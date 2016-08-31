@@ -1,0 +1,44 @@
+program class_definition+
+class_definition class type inheritance? { feature* } ;
+inheritance inherits type
+
+feature id : type member_attribution? ;
+member_attribution <- expression;
+
+feature id ( formal_parameters? ) : type { expression } ;
+formal_parameters id : type more_formal_parameter?
+more_formal_parameter , formal_parameters
+
+expression id <- expression
+expression expression static_type? . id ( actual_parameters? )
+static_type @ type
+actual_parameters expression more_actual_parameters?
+more_actual_parameters , actual_parameters
+
+expression id ( actual_parameters )
+expression if expression then expression else expression fi
+expression while expression loop expression pool
+expression { expressions+ }
+expressions expression ;
+expression let id : type member_attribution? more_lets* in expression
+more_lets , id : type member_attribution?
+
+expression case expression of case_option+ esac
+case_option id : type => expression ;
+expression new type
+expression isvoid expression
+expression expression plus expression
+expression expression - expression
+expression expression mult expression
+expression expression / expression
+expression ~ expression
+expression expression < expression
+expression expression <= expression
+expression expression = expression
+expression not expression
+expression ( expression )
+expression id
+expression integer
+expression string
+expression true
+expression false

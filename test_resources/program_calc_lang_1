@@ -1,0 +1,9 @@
+-- comment
+
+/*
+multiline comment
+*/
+
+def a = 3;
+a = 2 * 6;
+a = a + 10;

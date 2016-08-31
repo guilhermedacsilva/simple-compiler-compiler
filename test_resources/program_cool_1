@@ -1,0 +1,5 @@
+class Main inherits IO { -- comentario 123
+   main(): SELF_TYPE {
+	out_string("Hello, World.\n")
+   };
+};

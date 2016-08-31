@@ -1,0 +1,20 @@
+
+
+expression #case expression #of case_option+ #esac
+case_option id colon type implies expression semicolon
+expression #new type
+expression #isvoid expression
+expression expression plus expression
+expression expression minus expression
+expression expression mult expression
+expression expression div expression
+expression negation expression
+expression expression less expression
+expression expression less_equal expression
+expression expression equal expression
+expression #not expression
+expression parentheses_open expression parentheses_close
+expression id
+expression integer
+expression string
+expression bool

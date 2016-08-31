@@ -1,0 +1,6 @@
+type_int integer value_integer
+type_float float value_float
+type_nothing program
+
+@conflict type_float type_int type_float
+@conflict type_nothing *

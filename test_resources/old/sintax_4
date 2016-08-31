@@ -1,0 +1,10 @@
+root var+ att*
+var id var_init? ;
+var_init = number
+var_init = exp+
+att id = exp+
+exp exp plus exp
+exp exp - exp
+exp exp mult exp
+exp exp / exp
+exp number

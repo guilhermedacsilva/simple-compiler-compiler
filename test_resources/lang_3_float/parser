@@ -1,0 +1,24 @@
+program definition* command+
+
+definition var_type identifier semicolon
+
+var_type integer
+var_type float
+
+command identifier attribution expression semicolon
+command print parentheses_open expression parentheses_close semicolon
+
+expression term plus expression
+expression term minus expression
+expression plus expression
+expression minus expression
+expression term
+
+term factor mult term
+term factor div term
+term factor
+
+factor value_integer
+factor value_float
+factor identifier
+factor parentheses_open expression parentheses_close

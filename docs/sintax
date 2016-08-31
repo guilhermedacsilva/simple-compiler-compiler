@@ -1,0 +1,30 @@
+PROGRAM ::= [CLASS;]+
+CLASS ::= CLASS TYPE [inherits TYPE] { [FEATURE;]∗ }
+FEATURE ::= ID([FORMAL_PARAMETER[, FORMAL_PARAMETER]∗]) : TYPE { EXPRE } 
+	| ID : TYPE [ <- EXPRE ]
+FORMAL_PARAMETER ::= ID : TYPE
+EXPRE ::= ID <- EXPRE
+	| EXPRE[@TYPE].ID( [ EXPRE [[, EXPRE]]∗ ] )
+	| ID( [ EXPRE [[, EXPRE]]∗ ] )
+	| if EXPRE then EXPRE else EXPRE fi
+	| while EXPRE loop EXPRE pool
+	| { [[EXPRE; ]]+ }
+	| let ID : TYPE [ <- EXPRE ] [, ID : TYPE [ <- EXPRE ]]∗ in EXPRE
+	| case EXPRE of [ID : TYPE => EXPRE; ]+ esac
+	| new TYPE
+	| isvoid EXPRE
+	| EXPRE + EXPRE
+	| EXPRE − EXPRE
+	| EXPRE ∗ EXPRE
+	| EXPRE / EXPRE
+	|  ̃EXPRE
+	| EXPRE < EXPRE
+	| EXPRE <= EXPRE
+	| EXPRE = EXPRE
+	| not EXPRE
+	| (EXPRE)
+	| ID
+	| integer
+	| string
+	| true
+	| false

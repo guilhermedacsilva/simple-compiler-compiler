@@ -1,0 +1,67 @@
+=====================
+SIMPLE LEXER BUILDER MANUAL
+=====================
+Intro
+------------
+This class generates a Lexer.
+It will create a list of TokenConfiguration objects based on a configuration file.
+
+------------
+Instructions for the configuration file
+------------
+blank lines are ignored
+// comment. it works only if it is the first thing in the line
+
+-- rule format:
+token_class
+java_regex+ // 1 per line
+--
+
+the token_class is not unique, so you can have multiple regex that will be the same class
+
+java_regex must start with ^ and end with $.
+
+use multiple regex when you have some classes and one is the prefix of the other (the case of integer and float)
+	the first regex is the prefix+1 char
+	the second regex is the full regex
+	the class is match when the last regex is match
+
+special token class: @comment
+	the comment tokens will be deleted, so it will never be passed to the parser.
+
+------------
+Sample configuration file
+------------
+
+// example of 2 token classes for integer. one for positive and another for negative. it could be ^(\+|\-)\d+$
+integer
+^\+\d+$
+integer
+^\-\d+$
+
+// example of multiple regex. the first match the integer+1 and the second match the whole float
+float
+^(\+|\-)\d+\.$
+^(\+|\-)\d+\.\d+$
+
+// \p{L} is alpha and \d is numeric. search java regex for more.
+id
+^\p{L}+[\p{L}\d_]*$
+
+plus
+^\+$
+
+=====================
+PARSER MANUAL
+=====================
+
+
+=====================
+SEMANTIC MANUAL
+=====================
+
+syntax: type [symbol ]+
+
+if it doesnt have a type:
+	terminals: the type is itself
+	nonterminals: no type, just get the type from children (can have conflict)

@@ -1,0 +1,7 @@
+classe1 classe2* classe3? x
+classe2 a z
+classe2 b
+classe2 classe2
+classe3 classe4?
+classe3 a
+classe4 classe3+

@@ -1,0 +1,7 @@
+classe1 classe2+
+classe2 a
+classe2? classe2
+classe2? epsilon
+classe2* classe2 classe2*
+classe2* epsilon
+classe2+ classe2 classe2*

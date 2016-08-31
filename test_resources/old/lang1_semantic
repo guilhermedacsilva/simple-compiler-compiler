@@ -1,0 +1,27 @@
+int int plus int
+int int minus int
+int int mult int
+int int div int
+float float plus float
+float float minus float
+float float mult float
+float float div float
+float int plus float
+float int minus float
+float int mult float
+float int div float
+float float plus int
+float float minus int
+float float mult int
+float float div int
+
+
+
+lines line+
+line identifier attribution expression semicolon
+expression expression plus expression
+expression expression minus expression
+expression expression mult expression
+expression expression div expression
+expression integer
+expression float
